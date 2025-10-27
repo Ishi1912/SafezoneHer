@@ -13,26 +13,90 @@ body {
     background-size: cover;
 }
 
+/* Header container */
 header {
-    background: rgba(0, 77, 153, 0.8); /* Slightly transparent blue background */
+    background: rgba(0, 77, 153, 0.9);
     color: #fff;
-    padding: 1rem 0;
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+    position: relative;
+}
+
+/* Left Section - Emergency Button + Logo */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Emergency Button */
+.emergency-btn {
+    background-color: #b91f1f;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.emergency-btn:hover {
+    background-color: #850d0d;
+}
+
+/* Logo */
+.header-logo img {
+    height: 45px;
+    width: auto;
+    border-radius: 6px;
+}
+
+/* Center Title */
+.header-title {
+    flex: 1;
     text-align: center;
 }
-
-header h1 {
-    margin-bottom: 0.5rem;
-    font-size: 2rem;
+.header-title h1 {
+    font-size: 1.6rem;
+    margin: 0;
 }
 
+/* Right Section - Login/Signup */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Login/Signup Button */
+.login-btn {
+    background-color: #6495d6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+.login-btn:hover {
+    background-color: #15417b;
+}
+
+/* Navigation */
 nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 15px;
+    display: inline-block;
 }
 
 nav a {
@@ -45,6 +109,7 @@ nav a:hover {
     text-decoration: underline;
 }
 
+/* Main Content */
 main {
     padding: 2rem;
     max-width: 1200px;
@@ -52,7 +117,7 @@ main {
 }
 
 section {
-    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    background: rgba(255, 255, 255, 0.9);
     margin-bottom: 1.5rem;
     padding: 1.5rem;
     border-radius: 8px;
@@ -69,14 +134,16 @@ section p {
     margin-bottom: 1rem;
 }
 
+/* Images */
 img {
-    max-width: 60%; /* Adjust width as needed */
+    max-width: 80%;
     height: auto;
     display: block;
-    margin: 0 auto; /* Center images */
-    border-radius: 8px; /* Rounded corners for a softer look */
+    margin: 0 auto;
+    border-radius: 8px;
 }
 
+/* Links */
 a {
     color: #004d99;
     text-decoration: none;
@@ -86,6 +153,7 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Feedback Form */
 #feedback-form {
     max-width: 600px;
     margin: 0 auto;
@@ -100,7 +168,8 @@ a:hover {
     margin-bottom: 0.5rem;
 }
 
-#feedback-form input, #feedback-form textarea {
+#feedback-form input,
+#feedback-form textarea {
     width: 100%;
     padding: 0.7rem;
     margin-bottom: 1rem;
@@ -122,8 +191,9 @@ a:hover {
     background: #003d80;
 }
 
+/* Footer */
 footer {
-    background: rgba(0, 77, 153, 0.8); /* Slightly transparent blue background */
+    background: rgba(0, 77, 153, 0.8);
     color: #fff;
     text-align: center;
     padding: 1rem 0;
@@ -132,20 +202,76 @@ footer {
     bottom: 0;
 }
 
-/* Responsive design */
+/* Floating Buttons (Login / Logout) */
+.auth-buttons, .auth1-buttons {
+    position: fixed;
+    top: 10px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+    flex-wrap: wrap;
+}
+
+.auth-buttons { right: 10px; }
+.auth1-buttons { left: 10px; }
+
+.auth-button, .auth1-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.auth-button { background-color: #6495d6; }
+.auth1-button { background-color: #b91f1f; }
+
+.auth-button:hover, .auth1-button:hover {
+    background-color: #15417b;
+}
+
+/* ------------------- Responsive Design ------------------- */
+@media (max-width: 1024px) {
+    main {
+        padding: 1.5rem;
+    }
+    section h2 {
+        font-size: 1.5rem;
+    }
+    header h1 {
+        font-size: 1.8rem;
+    }
+}
+
 @media (max-width: 768px) {
-    nav ul {
+    header {
+        flex-direction: column;
+        align-items: center;
         text-align: center;
     }
 
-    nav ul li {
-        display: block;
-        margin: 0;
-        margin-bottom: 10px;
+    .header-left,
+    .header-right {
+        justify-content: center;
+        margin-top: 10px;
     }
 
-    header h1 {
-        font-size: 1.5rem;
+    .header-title h1 {
+        font-size: 1.3rem;
+    }
+
+    .emergency-btn, .login-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 
     section {
@@ -153,64 +279,37 @@ footer {
     }
 
     img {
-        max-width: 90%; /* Larger percentage for smaller screens */
+        max-width: 90%;
+    }
+
+    footer {
+        position: static; /* Prevent overlap on small screens */
     }
 }
-.log{
-    top: 10px;         /* Distance from the top of the viewport */
-    left: 5px;       /* Distance from the right edge of the viewport */
-    display: flex;
-    gap: 10px; 
-    z-index: 1000;  
-}
-.auth-buttons {
-    position: fixed;
-    top: 10px;         /* Distance from the top of the viewport */
-    right: 10px;       /* Distance from the right edge of the viewport */
-    display: flex;
-    gap: 10px;         /* Space between buttons */
-    z-index: 1000;     /* Ensure buttons are on top */
-}
 
-/* Style for the authentication buttons */
-.auth-button {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 25px; /* Oval shape */
-    background-color: #6495d6; /* Green background */
-    color: white;        /* White text */
-    text-align: center;
-    text-decoration: none; /* Remove underline */
-    font-weight: bold;
-    transition: background-color 0.3s; /* Smooth transition */
-}
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
 
-.auth-button:hover {
-    background-color: #15417b; /* Darker green on hover */
-}
+    header h1 {
+        font-size: 1.2rem;
+    }
 
-.auth1-buttons {
-    position: fixed;
-    top: 10px;         /* Distance from the top of the viewport */
-    left: 10px;       /* Distance from the right edge of the viewport */
-    display: flex;
-    gap: 10px;         /* Space between buttons */
-    z-index: 1000;     /* Ensure buttons are on top */
-}
+    .auth-button, .auth1-button {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
 
-/* Style for the authentication buttons */
-.auth1-button {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 25px; /* Oval shape */
-    background-color: #b91f1f; /* Red background */
-    color: white;        /* White text */
-    text-align: center;
-    text-decoration: none; /* Remove underline */
-    font-weight: bold;
-    transition: background-color 0.3s; /* Smooth transition */
-}
+    #feedback-form {
+        padding: 1rem;
+    }
 
-.auth1-button:hover {
-    background-color: #15417b; /* Darker green on hover */
+    section h2 {
+        font-size: 1.2rem;
+    }
+
+    img {
+        max-width: 100%;
+    }
 }
