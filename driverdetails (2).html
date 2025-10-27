@@ -26,18 +26,18 @@
     </form>
     
     <div id="details-info">
-        <!-- Driver and vehicle details will be displayed here -->
+
     </div>
     
     <script>
         function saveDetails() {
-            // Get the input values
+
             const name = document.getElementById('driver-name').value;
             const phone = document.getElementById('driver-phone').value;
             const carModel = document.getElementById('car-model').value;
             const vehicleNo = document.getElementById('vehicle-no').value;
             
-            // Create a new div element to display the details
+
             const detailsDiv = document.createElement('div');
             detailsDiv.innerHTML = `
                 <p><strong>Driver's Name:</strong> ${name}</p>
@@ -47,7 +47,7 @@
                 <button onclick="removeDetails(this)">Remove Details</button>
             `;
             
-            // Append the new div to the details-info section
+
             document.getElementById('details-info').appendChild(detailsDiv);
             
             // Clear the form inputs
@@ -58,7 +58,7 @@
         }
         
         function removeDetails(button) {
-            // Remove the details div that contains the clicked button
+
             const detailsDiv = button.parentNode;
             detailsDiv.remove();
         }
