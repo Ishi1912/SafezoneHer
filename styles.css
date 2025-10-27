@@ -13,17 +13,15 @@ body {
     background-size: cover;
 }
 
+
 /* Header container */
 header {
     background: rgba(0, 77, 153, 0.9);
     color: #fff;
-    padding: 0.8rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
-    position: relative;
+    text-align: center;
+    padding: 2rem 1rem;
 }
+
 
 /* Left Section - Emergency Button + Logo */
 .header-left {
