@@ -9,7 +9,7 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: url('background-image.jpg') no-repeat center center fixed;
+    background: url('../image/background-image.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
